@@ -30,6 +30,4 @@ public class APIMain extends RestAssuredBase{
             System.out.println("-------------------------------------");
         }
     }
-
-
 }
