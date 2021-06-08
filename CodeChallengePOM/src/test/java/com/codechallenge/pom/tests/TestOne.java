@@ -23,7 +23,7 @@ public class TestOne {
     }
 
     @Test
-    public void testForPage() throws InterruptedException {
+    public void testForPage(){
         //Verify that can add item to cart
         Assert.assertEquals(homePage.addToCart(),"1 Product");
         //Verify that can delete 1 item from cart
