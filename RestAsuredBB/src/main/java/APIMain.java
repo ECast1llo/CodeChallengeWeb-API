@@ -18,6 +18,5 @@ public class APIMain extends RestAssuredBase{
             System.out.println("Portrayed:  " + cr.getPortrayed());
             System.out.println("-------------------------------------");
         }
-
     }
 }
