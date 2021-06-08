@@ -1,24 +1,39 @@
-import java.util.List;
-
 public class Character {
 
-    private List<Integer> char_id;
-    private String name;
-    private List<String> birthday;
-    private List<String> occupation;
-    private String img;
-    private String status;
-    private String nickname;
-    private List<Integer> appearance;
-    private List<String> portrayed;
-    private String category;
-    private List<Integer> better_call_saul_appearance;
+    public String char_id;
+    public String name;
+    public String birthday;
+    public String[] occupation;
+    public String img;
+    public String status;
+    public String nickname;
+    public int[] appearance;
+    public String portrayed;
+    public String category;
+    public int[] better_call_saul_appearance;
 
-    public List<Integer> getChar_id() {
+    public Character(String char_id, String name, String birthday, String[] occupation, String img, String status, String nickname, int[] appearance, String portrayed, String category, int[] better_call_saul_appearance) {
+        this.char_id = char_id;
+        this.name = name;
+        this.birthday = birthday;
+        this.occupation = occupation;
+        this.img = img;
+        this.status = status;
+        this.nickname = nickname;
+        this.appearance = appearance;
+        this.portrayed = portrayed;
+        this.category = category;
+        this.better_call_saul_appearance = better_call_saul_appearance;
+    }
+
+    public Character(){
+    }
+
+    public String getChar_id() {
         return char_id;
     }
 
-    public void setChar_id(List<Integer> char_id) {
+    public void setChar_id(String char_id) {
         this.char_id = char_id;
     }
 
@@ -30,19 +45,19 @@ public class Character {
         this.name = name;
     }
 
-    public List<String> getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(List<String> birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
-    public List<String> getOccupation() {
+    public String[] getOccupation() {
         return occupation;
     }
 
-    public void setOccupation(List<String> occupation) {
+    public void setOccupation(String[] occupation) {
         this.occupation = occupation;
     }
 
@@ -70,19 +85,19 @@ public class Character {
         this.nickname = nickname;
     }
 
-    public List<Integer> getAppearance() {
+    public int[] getAppearance() {
         return appearance;
     }
 
-    public void setAppearance(List<Integer> appearance) {
+    public void setAppearance(int[] appearance) {
         this.appearance = appearance;
     }
 
-    public List<String> getPortrayed() {
+    public String getPortrayed() {
         return portrayed;
     }
 
-    public void setPortrayed(List<String> portrayed) {
+    public void setPortrayed(String portrayed) {
         this.portrayed = portrayed;
     }
 
@@ -94,11 +109,11 @@ public class Character {
         this.category = category;
     }
 
-    public List<Integer> getBetter_call_saul_appearance() {
+    public int[] getBetter_call_saul_appearance() {
         return better_call_saul_appearance;
     }
 
-    public void setBetter_call_saul_appearance(List<Integer> better_call_saul_appearance) {
+    public void setBetter_call_saul_appearance(int[] better_call_saul_appearance) {
         this.better_call_saul_appearance = better_call_saul_appearance;
     }
 }
