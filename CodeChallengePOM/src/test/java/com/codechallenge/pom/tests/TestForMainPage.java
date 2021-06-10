@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TestOne {
+public class TestForMainPage {
     private WebDriver driver;
     HomePage homePage;
 
@@ -23,15 +23,27 @@ public class TestOne {
     }
 
     @Test
-    public void testForPage(){
+    public void addItemToCart(){
         //Verify that can add item to cart
         Assert.assertEquals(homePage.addToCart(),"1 Product");
+    }
+
+    @Test
+    public void deleteFromCart(){
         //Verify that can delete 1 item from cart
         Assert.assertEquals(homePage.deleteFromCart(),"Your shopping cart is empty.");
+    }
+
+    @Test
+    public void searching(){
         //Using positive search in searchbar
         Assert.assertTrue(homePage.searchItem("blouse").contains("result has been found."));
         //Using negative search in searchbar
         Assert.assertEquals(homePage.searchItem("corbata"),"0 results have been found.");
+    }
+
+    @Test
+    public void validateInformation(){
         //Validate store information in footer
         //validate address
         Assert.assertEquals(homePage.validateStoreInformation().get(0),"Selenium Framework, Research Triangle" +
