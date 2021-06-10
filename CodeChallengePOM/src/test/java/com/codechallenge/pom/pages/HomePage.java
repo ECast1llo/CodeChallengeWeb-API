@@ -2,7 +2,6 @@ package com.codechallenge.pom.pages;
 
 import com.codechallenge.pom.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -36,15 +35,14 @@ public class HomePage extends Base {
         WebDriverWait wait=new WebDriverWait(driver, 5);
         Actions action = new Actions(driver);
         WebElement weProduct = driver.findElement(product);
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weProduct);
+        highLigth("yellow",weProduct);
         action.moveToElement(weProduct).moveToElement(driver.findElement(buttonAddtoCart)).click().build().perform();
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonCkeckout));
         WebElement weAddtoCart = driver.findElement(buttonCkeckout);
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weAddtoCart);
+        highLigth("yellow",weAddtoCart);
         action.moveToElement(weAddtoCart).moveToElement(driver.findElement(buttonCkeckout)).click().build().perform();
         WebElement weNumberofProduct = driver.findElement(numberOfProduct);
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weNumberofProduct);
+        highLigth("yellow",weNumberofProduct);
         return getText(weNumberofProduct);
     }
 
@@ -52,40 +50,37 @@ public class HomePage extends Base {
         WebDriverWait wait=new WebDriverWait(driver, 5);
         Actions moveTo = new Actions(driver);
         WebElement weDelete = driver.findElement(buttonDelete);
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weDelete);
+        highLigth("yellow",weDelete);
         moveTo.moveToElement(weDelete).moveToElement(driver.findElement(buttonDelete)).click().build().perform();
         wait.until(ExpectedConditions.visibilityOfElementLocated(messageCartEmpty));
         WebElement weMessageEmpty = driver.findElement(messageCartEmpty);
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weMessageEmpty);
+        highLigth("blue",weMessageEmpty);
         return getText(weMessageEmpty);
     }
 
     public String searchItem(String itemToSearch){
         WebElement weSerarchBox = driver.findElement(searchBox);
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weSerarchBox);
+        highLigth("blue",weSerarchBox);
         findElement(searchBox).clear();
         type(itemToSearch,searchBox);
         findElement(searchBox).submit();
         WebElement weFindItem = driver.findElement(itemsFounds);
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weFindItem);
+        highLigth("blue",weFindItem);
         return getText(weFindItem);
     }
 
     public List<String> validateStoreInformation(){
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         WebElement weStoreInformation = driver.findElement(storeInformation);
-        jsExecutor.executeScript("arguments[0].scrollIntoView();", weStoreInformation);
+        scrolling(weStoreInformation);
         List<String> information = new ArrayList<>();
         WebElement weAddressText = driver.findElement(addressText);
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weAddressText);
+        highLigth("blue",weAddressText);
         information.add(getText(weAddressText));
         WebElement weNumberPhone = driver.findElement(numberPhone);
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weNumberPhone);
+        highLigth("blue",weNumberPhone);
         information.add(getText(weNumberPhone));
         WebElement weEmailAddress = driver.findElement(emailAddress);
-        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", weEmailAddress);
+        highLigth("blue",weEmailAddress);
         information.add(getText(weEmailAddress));
         return information;
     }

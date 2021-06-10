@@ -1,6 +1,7 @@
 package com.codechallenge.pom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,4 +55,17 @@ public class Base {
             return false;
         }
     }
+
+    public JavascriptExecutor highLigth(String color, WebElement we){
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:"+color+"')", we);
+        return jsExecutor;
+    }
+
+    public  JavascriptExecutor scrolling(WebElement we){
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView();", we);
+        return jsExecutor;
+    }
+
 }
